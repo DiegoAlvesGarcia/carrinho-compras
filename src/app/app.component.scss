@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0 20px;
+    background-color: #4bde95;
+
+    .button-back {
+        color: #fffafa;
+        position: absolute;
+        left: 20px;
+    }
+
+    h1 {
+        color: #fffafa;
+        margin: 0;
+        font-size: 13px;
+    }
+}

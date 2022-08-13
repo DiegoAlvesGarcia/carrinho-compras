@@ -1,59 +1,54 @@
 <section class="container">
-    <!-- cor verde -->
     <div class="card-space">
-        <!-- botão voltar + etapa -->
-        <div class="header">
-            <button mat-icon-button class="button-back" aria-label="Voltar">
-                <mat-icon>arrow_back_ios</mat-icon>
-            </button>
-            <h1>Etapa X de Y</h1>
-        </div>
         <div class="new-card">
             <div class="sub-title">
-                <!-- sub-título-->
                 <img class="icon" src="../../../assets/icons/cartao.svg" alt="My Happy SVG" />
                 <h2>Adicione um novo cartão de crédito</h2>
             </div>
-            <div class="card">
-                <p class="flag">Visa</p>
-                <p class="number">1111 2222 3333 4444</p>
+            <div class="card {{valueCard.flag}}">
+                <p class="flag">{{valueCard.flag ? valueCard.flag : 'Credit Card'}}</p>
+                <p class="number">{{valueCard.numCard ? valueCard.numCard : '**** **** **** ****'}}</p>
                 <div class="name-date">
-                    <p class="name">Diego Alves Garcia</p>
-                    <p class="date">06/26</p>
+                    <p class="name">{{valueCard.name ? (valueCard.name | uppercase) : 'Nome do titular'}}</p>
+                    <p class="date">{{valueCard.date ? valueCard.date : '00/00'}}</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- cor branca -->
     <div class="form-space">
-        <!-- formulario -->
-        <form [formGroup]="form">
+        <form [formGroup]="form" class="form">
             <mat-form-field appearance="standard">
                 <mat-label>Número do cartão</mat-label>
-                <input matInput mask="0000 0000 0000 0000" formControlName="numCard">
+                <input (keyup)="dataCard('numCard')" matInput mask="0000 0000 0000 0000" formControlName="numCard">
+                <mat-error *ngIf="form.controls['numCard'].invalid">Número de cartão inválido</mat-error>
             </mat-form-field>
             <mat-form-field appearance="standard">
                 <mat-label>Nome (igual ao cartão)</mat-label>
-                <input matInput type="text" formControlName="name">
+                <input (keyup)="dataCard('name')" matInput type="text" formControlName="name">
+                <mat-error *ngIf="form.controls['name'].invalid">Insira seu nome completo</mat-error>
             </mat-form-field>
-            <mat-form-field appearance="standard">
-                <mat-label>Validade</mat-label>
-                <input matInput mask="00/00" formControlName="date">
-            </mat-form-field>
-            <mat-form-field appearance="standard">
-                <mat-label>CVV</mat-label>
-                <input matInput mask="000" formControlName="cvv">
-            </mat-form-field>
+            <div class="same-line">
+                <mat-form-field appearance="standard">
+                    <mat-label>Validade</mat-label>
+                    <input (keyup)="dataCard('date')" matInput mask="00/00" formControlName="date">
+                    <mat-error *ngIf="form.controls['date'].invalid">Data inválida</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard" class="cvv">
+                    <mat-label>CVV</mat-label>
+                    <input (keyup)="dataCard('cvv')" matInput mask="000" formControlName="cvv">
+                    <mat-error *ngIf="form.controls['cvv'].invalid">Código inválido</mat-error>
+                </mat-form-field>
+            </div>
             <mat-form-field appearance="standard">
                 <mat-label>Número de parcelas</mat-label>
-                <input matInput formControlName="installments">
+                <mat-select formControlName="installments">
+                    <mat-option *ngFor="let installment of installments" value="{{installment}}">{{installment}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls['installments'].invalid">Insira o número de parcelas</mat-error>
             </mat-form-field>
         </form>
-
-        <!-- botão continuar -->
-        <button>
-            continuar
-        </button>
+        <div class="button-area">
+            <button mat-raised-button class="button" [disabled]="form.invalid" (click)="continue()">continuar</button>
+        </div>
     </div>
 </section>

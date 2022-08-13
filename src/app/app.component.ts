@@ -9,7 +9,7 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  showHeader: boolean;
+  etapaAtual: boolean;
 
   constructor(
     private location: Location,
@@ -30,6 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   private setRouteValues(data: Data) {
-    this.showHeader = data.showHeader;
+    this.etapaAtual = data.etapaAtual;
   }
 }

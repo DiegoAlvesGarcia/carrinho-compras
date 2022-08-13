@@ -11,6 +11,9 @@ const routes: Routes = [
   {
     path: 'pagamento-cartao',
     component: PagamentoCartaoComponent,
+    data: {
+      etapaAtual: '2'
+    }
   },
 ];
 

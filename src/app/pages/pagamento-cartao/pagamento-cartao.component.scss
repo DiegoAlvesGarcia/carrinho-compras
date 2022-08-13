@@ -2,28 +2,9 @@
     background-color: #4bde95;
     position: absolute;
     width: 100%;
-    height: 240px;
+    height: 170px;
 
     .card-space {
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;  
-            margin-top: 40px;          
-
-            .button-back {
-                color: #fffafa;
-                position: absolute;
-                left: 20px;
-            }
-
-            h1 {
-                color: #fffafa;
-                margin: 0;
-                font-size: 13px;
-            }
-        }
-
         .new-card {
             display: flex;
             flex-direction: column;
@@ -49,15 +30,28 @@
                 }
             }
 
-            .card {
-                width: calc(280px - 32px);
+            .visa {
                 background: radial-gradient(
                     73.06% 104.31% at 14.59% 58.06%,
                     #5a7589 0%,
                     #436175 33.7%,
                     #315266 57.29%,
                     #124768 100%
-                );
+                ) !important;
+            }
+
+            .mastercard {
+                background: radial-gradient(
+                    73.06% 104.31% at 14.59% 58.06%,
+                    #a73e3e 0%,
+                    #a14747 33.7%,
+                    #872b2b 100%
+                ) !important;
+            }
+
+            .card {
+                width: calc(280px - 32px);
+                background: radial-gradient(73.06% 104.31% at 14.59% 58.06%, #bfbfbf 0%, #a8a8a8 33.7%, #727272 100%);
                 padding: 32px 16px;
                 border-radius: 10px;
                 color: #fffafa;
@@ -85,17 +79,53 @@
             }
         }
     }
+
+    .form-space {
+        padding: 40px;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+
+            .same-line {
+                display: grid;
+                justify-content: space-between;
+                grid-template-columns: 50% 50%;
+
+                .cvv {
+                    padding-left: 12px;
+                }
+            }
+        }
+
+        .button-area {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+
+            .button {
+                background-color: #308e5f;
+                color: #fffafa;
+            }
+        }
+    }
 }
 
 ::ng-deep {
-    // .mat-form-field-underline {
-    //     background-color: #4bde95 !important;
-    // }
+    .mat-form-field-underline {
+        background-color: #c6c6c6 !important;
+    }
 
     .mat-form-field.mat-focused .mat-form-field-ripple {
-        background-color: #4bde95 !important;
+        background-color: #308e5f !important;
     }
-    .mat-form-field.mat-focused .mat-form-field-label {
-        color: rgba(0, 0, 0, 0.8) !important;
+
+    .mat-form-field-label,
+    .mat-form-field-required-marker {
+        color: #c6c6c6 !important;
+    }
+
+    .button-area .mat-raised-button.mat-button-disabled {
+        background-color: #308e5f94 !important;
     }
 }
