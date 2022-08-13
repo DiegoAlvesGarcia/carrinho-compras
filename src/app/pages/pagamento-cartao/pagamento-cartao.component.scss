@@ -1,0 +1,101 @@
+.container {
+    background-color: #4bde95;
+    position: absolute;
+    width: 100%;
+    height: 240px;
+
+    .card-space {
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            margin-top: 40px;          
+
+            .button-back {
+                color: #fffafa;
+                position: absolute;
+                left: 20px;
+            }
+
+            h1 {
+                color: #fffafa;
+                margin: 0;
+                font-size: 13px;
+            }
+        }
+
+        .new-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .sub-title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 54px;
+                margin: 24px 0 16px;
+
+                .icon {
+                    margin-right: 16px;
+                }
+
+                h2 {
+                    color: #fffafa;
+                    font-style: normal;
+                    font-size: 16px;
+                    line-height: 19px;
+                    margin-bottom: 0;
+                }
+            }
+
+            .card {
+                width: calc(280px - 32px);
+                background: radial-gradient(
+                    73.06% 104.31% at 14.59% 58.06%,
+                    #5a7589 0%,
+                    #436175 33.7%,
+                    #315266 57.29%,
+                    #124768 100%
+                );
+                padding: 32px 16px;
+                border-radius: 10px;
+                color: #fffafa;
+                text-shadow: 0px 1px 2px rgb(0 0 0 / 25%);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 17px;
+
+                .flag {
+                    margin-bottom: 40px;
+                }
+
+                .number {
+                    margin-bottom: 16px;
+                }
+
+                .name-date {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .name {
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+::ng-deep {
+    // .mat-form-field-underline {
+    //     background-color: #4bde95 !important;
+    // }
+
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+        background-color: #4bde95 !important;
+    }
+    .mat-form-field.mat-focused .mat-form-field-label {
+        color: rgba(0, 0, 0, 0.8) !important;
+    }
+}

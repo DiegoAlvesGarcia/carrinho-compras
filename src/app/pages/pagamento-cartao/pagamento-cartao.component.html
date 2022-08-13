@@ -1,0 +1,59 @@
+<section class="container">
+    <!-- cor verde -->
+    <div class="card-space">
+        <!-- botão voltar + etapa -->
+        <div class="header">
+            <button mat-icon-button class="button-back" aria-label="Voltar">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <h1>Etapa X de Y</h1>
+        </div>
+        <div class="new-card">
+            <div class="sub-title">
+                <!-- sub-título-->
+                <img class="icon" src="../../../assets/icons/cartao.svg" alt="My Happy SVG" />
+                <h2>Adicione um novo cartão de crédito</h2>
+            </div>
+            <div class="card">
+                <p class="flag">Visa</p>
+                <p class="number">1111 2222 3333 4444</p>
+                <div class="name-date">
+                    <p class="name">Diego Alves Garcia</p>
+                    <p class="date">06/26</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- cor branca -->
+    <div class="form-space">
+        <!-- formulario -->
+        <form [formGroup]="form">
+            <mat-form-field appearance="standard">
+                <mat-label>Número do cartão</mat-label>
+                <input matInput mask="0000 0000 0000 0000" formControlName="numCard">
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Nome (igual ao cartão)</mat-label>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Validade</mat-label>
+                <input matInput mask="00/00" formControlName="date">
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>CVV</mat-label>
+                <input matInput mask="000" formControlName="cvv">
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <mat-label>Número de parcelas</mat-label>
+                <input matInput formControlName="installments">
+            </mat-form-field>
+        </form>
+
+        <!-- botão continuar -->
+        <button>
+            continuar
+        </button>
+    </div>
+</section>
