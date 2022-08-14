@@ -14,11 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMaskModule } from 'ngx-mask';
 import { CurrencyPipe } from '@angular/common';
+import { CreditCardComponent } from './shared/components/credit-card/credit-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagamentoCartaoComponent
+    PagamentoCartaoComponent,
+    CreditCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Payments } from '../../interfaces/payments.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PaymentService {
     private httpClient: HttpClient
   ) { }
 
-  getInstallments() {
-    return this.httpClient.get('http://localhost:3000/installments/');
+  getInstallments(): Observable<Payments[]> {
+    return this.httpClient.get<Payments[]>('http://localhost:3000/installments/');
   }
 }
