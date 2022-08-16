@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivationEnd, Data, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 
@@ -9,10 +8,11 @@ import { filter, map } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  etapaAtual: boolean;
+  etapaAtual: string;
+  numeroSteps: string;
+  arraySteps = [] 
 
   constructor(
-    private location: Location,
     private router: Router
   ) { }
 
@@ -31,5 +31,17 @@ export class AppComponent implements OnInit {
 
   private setRouteValues(data: Data) {
     this.etapaAtual = data.etapaAtual;
+    this.numeroSteps = data.numeroSteps;
+    let i = 1;
+
+    for (let index = 0; index < Number(this.numeroSteps); index++) { 
+      if (i < Number(this.etapaAtual)) {
+        this.arraySteps[index] = 'previous_step'
+      } else {
+        this.arraySteps[index] = i;
+      }
+      i++
+    }
+    console.log('this.arraySteps ->', this.arraySteps)
   }
 }

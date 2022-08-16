@@ -1,7 +1,28 @@
 <div class="header">
-    <button mat-icon-button class="button-back" aria-label="Voltar">
-        <mat-icon>arrow_back_ios</mat-icon>
-    </button>
-    <h1>Etapa {{etapaAtual}} de 3</h1>
+    <div class="faixa"></div>
+    <div class="content-mobile">
+        <button mat-icon-button class="button-back" aria-label="Voltar">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+        <h1>Etapa {{etapaAtual}} de {{numeroSteps}}</h1>
+    </div>
+    <div class="content-desk">
+        <div class="back">
+            <button mat-icon-button class="button-back" aria-label="Voltar">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <p>Alterar forma de pagamento</p>
+        </div>
+        <div class="stepper">
+            <div class="step" *ngFor="let item of arraySteps">
+                <span class="arrow material-symbols-outlined">arrow_forward_ios </span>
+                <span class="done material-symbols-outlined" *ngIf="item === 'previous_step'; else currentStep">done</span>
+                <ng-template #currentStep>
+                    <p class="current">{{item}}</p>
+                </ng-template>
+                <p class="text">Carrinho</p>
+            </div>
+        </div>
+    </div>
 </div>
 <router-outlet></router-outlet>
