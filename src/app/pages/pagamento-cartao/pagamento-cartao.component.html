@@ -1,40 +1,52 @@
 <section class="container">
-    <app-credit-card [numCard]="form.controls['numCard'].value" [flag]="" [name]="form.controls['name'].value" [date]="this.form.controls['date'].value"></app-credit-card>
-    <div class="form-space">
-        <form [formGroup]="form" class="form">
-            <mat-form-field appearance="standard">
-                <mat-label>Número do cartão</mat-label>
-                <input matInput mask="0000 0000 0000 0000" formControlName="numCard">
-                <mat-error *ngIf="form.controls['numCard'].invalid">Número de cartão inválido</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="standard">
-                <mat-label>Nome (igual ao cartão)</mat-label>
-                <input matInput type="text" formControlName="name">
-                <mat-error *ngIf="form.controls['name'].invalid">Insira seu nome completo</mat-error>
-            </mat-form-field>
-            <div class="same-line">
-                <mat-form-field appearance="standard">
-                    <mat-label>Validade</mat-label>
-                    <input matInput mask="00/00" formControlName="date">
-                    <mat-error *ngIf="form.controls['date'].invalid">Data inválida</mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="standard" class="cvv">
-                    <mat-label>CVV</mat-label>
-                    <input matInput mask="000" formControlName="cvv">
-                    <mat-error *ngIf="form.controls['cvv'].invalid">Código inválido</mat-error>
-                </mat-form-field>
+    <div class="faixa"></div>
+    <div class="content">
+        <div class="new-card">
+            <div class="sub-title">
+                <img class="icon" src="../../../assets/icons/cartao.svg" alt="My Happy SVG" />
+                <h2>Adicione um novo cartão de crédito</h2>
             </div>
-            <mat-form-field appearance="standard">
-                <mat-label>Número de parcelas</mat-label>
-                <mat-select formControlName="installments">
-                    <mat-option *ngFor="let installment of installments" value="{{installment}}">{{installment}}
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="form.controls['installments'].invalid">Insira o número de parcelas</mat-error>
-            </mat-form-field>
-        </form>
+            <app-credit-card class="card" [numCard]="form.controls['numCard'].value" [flag]="" [name]="form.controls['name'].value"
+                [date]="this.form.controls['date'].value">
+            </app-credit-card>
+        </div>
+        <div class="form-space">
+            <form [formGroup]="form" class="form">
+                <mat-form-field appearance="standard">
+                    <mat-label>Número do cartão</mat-label>
+                    <input matInput mask="0000 0000 0000 0000" formControlName="numCard">
+                    <mat-error *ngIf="form.controls['numCard'].invalid">Número de cartão inválido</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>Nome (igual ao cartão)</mat-label>
+                    <input matInput type="text" formControlName="name">
+                    <mat-error *ngIf="form.controls['name'].invalid">Insira seu nome completo</mat-error>
+                </mat-form-field>
+                <div class="same-line">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Validade</mat-label>
+                        <input matInput mask="00/00" formControlName="date">
+                        <mat-error *ngIf="form.controls['date'].invalid">Data inválida</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="standard" class="cvv">
+                        <mat-label>CVV</mat-label>
+                        <input matInput mask="000" formControlName="cvv">
+                        <mat-error *ngIf="form.controls['cvv'].invalid">Código inválido</mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-form-field appearance="standard">
+                    <mat-label>Número de parcelas</mat-label>
+                    <mat-select formControlName="installments">
+                        <mat-option *ngFor="let installment of installments" value="{{installment}}">{{installment}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['installments'].invalid">Insira o número de parcelas</mat-error>
+                </mat-form-field>
+            </form>
+        </div>
         <div class="button-area">
-            <button mat-raised-button class="button" [disabled]="form.invalid" (click)="continue()">continuar</button>
+            <button mat-raised-button class="button" [disabled]="form.invalid"
+                (click)="continue()">continuar</button>
         </div>
     </div>
 </section>

@@ -1,14 +1,8 @@
-<div class="new-card">
-    <div class="sub-title">
-        <img class="icon" src="../../../assets/icons/cartao.svg" alt="My Happy SVG" />
-        <h2>Adicione um novo cartão de crédito</h2>
-    </div>
-    <div class="card {{flag}}">
-        <p class="flag">{{flag ? flag : 'Credit Card'}}</p>
-        <p class="number">{{numCard ? numCard : '**** **** **** ****'}}</p>
-        <div class="name-date">
-            <p class="name">{{name ? (name | uppercase) : 'Nome do titular'}}</p>
-            <p class="date">{{date ? date : '00/00'}}</p>
-        </div>
+<div class="card {{flag}}">
+    <p class="flag">{{flag ? flag : 'Credit Card'}}</p>
+    <p class="number">{{numCard ? numCard : '**** **** **** ****'}}</p>
+    <div class="name-date">
+        <p class="name">{{name ? (name | uppercase) : 'Nome do titular'}}</p>
+        <p class="date">{{date ? date : '00/00'}}</p>
     </div>
 </div>
