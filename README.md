@@ -6,7 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1- Clone this project
 2- Use the command 'npm install --force' to install the dependencies
-3- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+3- Run `npm run db` to inicialize the Data Base
+4- Run `npm run start:local` for a dev server. Navigate to `http://localhost:4200/`..
 
 ## Build
 
@@ -14,11 +15,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `npx jest` to execute the unit tests via [JEST](https://jestjs.io/).
+Run `npx jest --coverage` to execute the unit tests via [JEST](https://jestjs.io/).
 
 ## Project buildered by Heroku
 
-<!-- To access project online -> https://angular-marvel-project.herokuapp.com/ -->
+To access project online -> https://carrinho-compras.herokuapp.com/pagamento-cartao
 
 ## Node version
 
