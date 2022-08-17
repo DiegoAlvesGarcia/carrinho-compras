@@ -38,16 +38,24 @@ export class PagamentoCartaoComponent implements OnInit {
     this.paymentService.getInstallments()
       .pipe(take(1))
       .subscribe((resp) => {
-        resp.forEach((value: any) => {
-          this.installments.push(
-            `${value.portion} de ${this.currencyPipe.transform(value.value, 'BRL')}
-            ${value.interest ? `com ${value.interest} de juros` : 'sem juros'}`
-          )
+        resp.forEach((value) => {
+          this.installments
+            .push({
+              text: `${value.portion} de ${this.currencyPipe.transform(value.value, 'BRL')} ${value.interest ? `com ${value.interest} de juros` : 'sem juros'}`,
+              id: value.id
+            })
         })
       })
   }
 
   continue() {
-    console.log(this.form);
+    this.paymentService.setDataCard(this.form.value).subscribe({
+      next: () => {
+        window.alert('Pagamento realizado com sucesso');
+      },
+      error: () => {
+        window.alert('Erro: pagamento não realizado. Confira informações do cartão');
+      }
+    })
   }
 }

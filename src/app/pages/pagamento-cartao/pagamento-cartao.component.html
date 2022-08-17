@@ -37,7 +37,7 @@
                 <mat-form-field appearance="standard">
                     <mat-label>Número de parcelas</mat-label>
                     <mat-select formControlName="installments">
-                        <mat-option *ngFor="let installment of installments" value="{{installment}}">{{installment}}
+                        <mat-option *ngFor="let installment of installments" value="{{installment.id}}">{{installment.text}}
                         </mat-option>
                     </mat-select>
                     <mat-error *ngIf="form.controls['installments'].invalid">Insira o número de parcelas</mat-error>

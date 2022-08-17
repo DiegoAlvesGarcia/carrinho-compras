@@ -42,6 +42,5 @@ export class AppComponent implements OnInit {
       }
       i++
     }
-    console.log('this.arraySteps ->', this.arraySteps)
   }
 }

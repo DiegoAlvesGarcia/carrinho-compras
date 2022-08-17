@@ -11,8 +11,6 @@ export class CreditCardComponent implements OnChanges {
   @Input() name!: string;
   @Input() date!: string;
 
-  constructor() { }
-
   ngOnChanges() {
     this.numCard = this.numCard?.match(/\d{1,4}/g)?.join(' ');
     this.name = this.name?.toUpperCase();
