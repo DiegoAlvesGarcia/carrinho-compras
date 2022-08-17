@@ -12,26 +12,26 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$projeto-base-primary: mat.define-palette(mat.$indigo-palette);
-$projeto-base-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$carrinho-compras-primary: mat.define-palette(mat.$indigo-palette);
+$carrinho-compras-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$projeto-base-warn: mat.define-palette(mat.$red-palette);
+$carrinho-compras-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$projeto-base-theme: mat.define-light-theme((
+$carrinho-compras-theme: mat.define-light-theme((
   color: (
-    primary: $projeto-base-primary,
-    accent: $projeto-base-accent,
-    warn: $projeto-base-warn,
+    primary: $carrinho-compras-primary,
+    accent: $carrinho-compras-accent,
+    warn: $carrinho-compras-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($projeto-base-theme);
+@include mat.all-component-themes($carrinho-compras-theme);
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 

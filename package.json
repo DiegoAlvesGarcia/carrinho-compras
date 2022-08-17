@@ -1,5 +1,5 @@
 {
-  "name": "projeto-base",
+  "name": "carrinho-compras",
   "version": "1.0.0",
   "scripts": {
     "jest": "jest",
